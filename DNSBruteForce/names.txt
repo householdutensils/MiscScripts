@@ -1,0 +1,10 @@
+dns
+web
+www
+mail
+owa
+cwa
+master
+intranet
+ftp
+sip
