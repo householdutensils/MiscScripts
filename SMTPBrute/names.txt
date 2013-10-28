@@ -1,0 +1,8 @@
+root
+www
+ftp
+adm
+bob
+kevin
+alice
+tim

@@ -1,0 +1,8 @@
+smtpbrute
+
+Multi-threaded queued smtp vrfy brute force script.
+
+usage: smtpbrute.py [-h] (-U USERSFILE | -u USERNAME) [-t THREADS]
+                    [-T SOCKTIMEOUT]
+                    [target]
+smtpbrute.py: error: You need to enter a range (Only supports the last octet) or address
