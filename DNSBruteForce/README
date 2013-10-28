@@ -5,7 +5,3 @@ Leverages the host tool and bash jobs to perform parralel brute forcing of dns n
 Usage: host names_file domain dns_server
 
 included is an example of a text file containing dns names to query called: names.txt
-
-```Example
-#./dnsbrute.sh names.txt sample.domain 127.0.0.1
-```

@@ -4,7 +4,7 @@ DNSFILE=$1 #A file containing a list of names to try
 DOMAIN=$2 #The domain to query
 DNSSERVER=$3 #The DNS server to query
 
-JOBPOOL=2 #Limit on how many jobs to spawn. This prevents a forkbomb like effect.
+JOBPOOL=5 #Limit on how many jobs to spawn. This prevents a forkbomb like effect.
 
 for name in $(cat $DNSFILE);do
 	NUMJOBS=$(jobs | wc | awk ' { print $1 } ')
