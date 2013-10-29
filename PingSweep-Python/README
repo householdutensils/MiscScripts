@@ -1,0 +1,9 @@
+usage: PingSweep-Python.py [-h] target
+
+Python Ping Sweep
+
+positional arguments:
+  target      CIDR For ping sweep
+
+optional arguments:
+  -h, --help  show this help message and exit
