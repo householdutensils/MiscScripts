@@ -12,6 +12,7 @@ mutgroup = parser.add_mutually_exclusive_group(required=True)
 mutgroup.add_argument("-eb", "--enumbytes", help="Dispay a list of unique bytes in the input", action="store_true")
 mutgroup.add_argument("-bc", "--badchars", help="Display a lit of potentially bad characters in the input", action="store_true")
 mutgroup.add_argument("-os", "--outputstring", help="Display the input as a string", action="store_true")
+mutgroup.add_argument("-bs", "--bytesummary", help="Display a byte summary", action="store_true")
 mutgroup.add_argument("-l", "--length", help="Display the length of the input", action="store_true")
 
 parser.add_argument("shellcode", help="Raw shellcode input (From bin or msfpayload etc)")
@@ -66,3 +67,29 @@ if args.shellcode is not None:
 			count = count + 1
 	elif args.length:
 		print "Length: " + str(byte_list.__len__())
+
+	elif args.bytesummary:
+		string_output = ""
+		previous_byte = ""
+		first_time = True
+		counter = 1
+		for byte in byte_list:
+			if first_time:
+				first_time = False
+				previous_byte = byte
+			else:
+				if byte == previous_byte:
+					counter = counter + 1
+					previous_byte = byte
+				else:
+					if len(previous_byte) is 1:
+						previous_byte = "0" + previous_byte
+					elif len(previous_byte) is 0:
+						previous_byte = "00"
+					if counter > 1:
+						string_output += "\\x" + previous_byte + "[" + str(counter) + "]\r\n"
+					else:
+						string_output += "\\x" + previous_byte + "\r\n"
+					counter = 1	
+					previous_byte = byte	
+		print string_output	
