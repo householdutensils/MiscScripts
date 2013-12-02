@@ -63,9 +63,13 @@ if args.notitle is False:
     print("Date: " + current_datetime)
 
 def load_list_from_file(listfile):
-    with open(listfile) as file_handle:
-        return_array = file_handle.readlines()
-    return return_array
+    try:
+        with open(listfile) as file_handle:
+            return_array = file_handle.readlines()
+        return return_array
+    except IOError:
+        print("Unable to open file: " + listfile + " :( Exiting.")
+        exit()
 
 if args.user is not None:
     users_list.append(args.user)
