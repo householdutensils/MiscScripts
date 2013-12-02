@@ -206,7 +206,7 @@ for n in scan_threads:
 output_message = ""
 
 if args.verbose:
-    output_message += "Here are the results of the CredView scan for: " + current_datetime + "\r\n\r\n"
+    output_message += "Here are the results of the scan for: " + current_datetime + "\r\n\r\n"
 
 for line in weak_creds:
         output_message += line + "\r\n"
